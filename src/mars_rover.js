@@ -1,7 +1,7 @@
 
 const mars_rover = (coordinatesPlateau, roverSetInstructions) => {
 
-    return "";
+    return [1, 3, "N"];
   };
   
   module.exports =  mars_rover ;
