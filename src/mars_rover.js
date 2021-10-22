@@ -1,17 +1,15 @@
 const mars_rover = (setMarsRoverInstructions) => {
-  // set initial rover position
-  const currentRoverPosition =
-    setMarsRoverInstructions.roverSetInstructions.roverPosition;
-  let currentRoverOrientation =
-    setMarsRoverInstructions.roverSetInstructions.roverPosition
-      .roverOrientation;
+  const outputRoversPosition = [];
 
-  // read rover instructions and iterate each instruction
-  [...setMarsRoverInstructions.roverSetInstructions.roverInstruction].forEach(
-    (instruction) => {
+  // Iterate for each Rover
+  setMarsRoverInstructions.roverSetInstructions.forEach((e) => {
+    let currentRoverOrientation = e.roverPosition.roverOrientation;
+    let currentRoverPosition = e.roverPosition;
+
+    // iterate each instruction
+    [...e.roverInstruction].forEach((instruction) => {
       // If instruction is L or R we update the Orientation
       if (instruction === "L" || instruction === "R") {
-        //roverX: 0, roverY: 2  O=S  instruction=M
         if (instruction === "L") {
           switch (currentRoverOrientation) {
             case "W":
@@ -30,6 +28,24 @@ const mars_rover = (setMarsRoverInstructions) => {
               break;
           }
         }
+        if (instruction === "R") {
+          switch (currentRoverOrientation) {
+            case "W":
+              currentRoverOrientation = "N";
+              break;
+            case "S":
+              currentRoverOrientation = "W";
+              break;
+            case "E":
+              currentRoverOrientation = "S";
+              break;
+            case "N":
+              currentRoverOrientation = "E";
+              break;
+            default:
+              break;
+          }
+        }
       }
 
       // If instruction is M we update the Position
@@ -39,13 +55,17 @@ const mars_rover = (setMarsRoverInstructions) => {
         if (currentRoverOrientation === "E") currentRoverPosition.roverX += 1;
         if (currentRoverOrientation === "N") currentRoverPosition.roverY += 1;
       }
-    }
-  );
-  const finalArrayRoverPosition = [];
-  finalArrayRoverPosition[0] = currentRoverPosition.roverX;
-  finalArrayRoverPosition[1] = currentRoverPosition.roverY;
-  finalArrayRoverPosition[2] = currentRoverOrientation;
-  return finalArrayRoverPosition;
+    });
+
+    const objFinalRoverPosition = {
+      outputRoverX: currentRoverPosition.roverX,
+      outoutRoverY: currentRoverPosition.roverY,
+      outputRoverOrientation: currentRoverOrientation,
+    };
+    outputRoversPosition.push(objFinalRoverPosition);
+  });
+
+  return outputRoversPosition;
 };
 
 module.exports = mars_rover;
