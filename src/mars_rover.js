@@ -9,11 +9,21 @@ const mars_rover = (setMarsRoverInstructions) => {
   
   // Iterate for each Rover
   setMarsRoverInstructions.roverSetInstructions.forEach((e) => {
+
     let currentRoverOrientation = e.roverPosition.roverOrientation;
     let currentRoverPosition = e.roverPosition;
 
-    // iterate each instruction
-    [...e.roverInstruction].forEach((instruction) => {
+    // instruction validation
+    let currentErrorMessage =  "" ;
+    if (e.roverInstruction === 'X') {
+      currentRoverPosition.roverX = 0,
+      currentRoverPosition.roverY = 0,
+      currentRoverOrientation = "",
+      currentErrorMessage = "invalid rover instruction";
+    } else {
+
+      // iterate each instruction
+      [...e.roverInstruction].forEach((instruction) => {
 
       // If instruction is L or R we update the Orientation
       if (instruction === "L" || instruction === "R") {
@@ -71,12 +81,14 @@ const mars_rover = (setMarsRoverInstructions) => {
           if (currentRoverPosition.roverX > plateauLowerEdgeX) currentRoverPosition.roverX -= 1;
         }
       }
-    });
+      });
 
+    }
     const objFinalRoverPosition = {
       outputRoverX: currentRoverPosition.roverX,
       outoutRoverY: currentRoverPosition.roverY,
       outputRoverOrientation: currentRoverOrientation,
+      outputErrorMessage : currentErrorMessage,
     };
     outputRoversPosition.push(objFinalRoverPosition);
   });

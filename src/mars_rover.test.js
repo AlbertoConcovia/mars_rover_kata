@@ -29,7 +29,8 @@ describe("Mars Rover - Move Around the Plateau test", () => {
       { 
         outputRoverX: 1, 
         outoutRoverY: 3, 
-        outputRoverOrientation: "N" 
+        outputRoverOrientation: "N" ,
+        outputErrorMessage: ""
       }
     ];
     // Act
@@ -57,12 +58,14 @@ describe("Mars Rover - Move Around the Plateau test", () => {
       { 
         outputRoverX: 1, 
         outoutRoverY: 3, 
-        outputRoverOrientation: "N" 
+        outputRoverOrientation: "N"  ,
+        outputErrorMessage: ""
       },  
       { 
         outputRoverX: 5, 
         outoutRoverY: 1, 
-        outputRoverOrientation: "E" 
+        outputRoverOrientation: "E"  ,
+        outputErrorMessage: ""
       }
     ];
     // Act
@@ -87,7 +90,34 @@ describe("Mars Rover - Move Around the Plateau test", () => {
       { 
         outputRoverX: 3, 
         outoutRoverY: 5, 
-        outputRoverOrientation: "E" 
+        outputRoverOrientation: "E"  ,
+        outputErrorMessage: ""
+      }
+    ];
+    // Act
+    const roverFinalPosition = mars_rover(setMarsRoverInstructions);
+    // Assert
+    expect(roverFinalPosition).toStrictEqual(result);
+  });
+
+  // test invalid letters into instructions
+  test("Test 4 - Given invalid instruccions then return error message", () => {
+    // Arrange
+    const setMarsRoverInstructions = {
+      plateauMaxCoordinates: { plateauX: 5, plateauY: 5 },
+      roverSetInstructions: [
+        {
+          roverPosition: { roverX: 1, roverY: 4, roverOrientation: "N" },
+          roverInstruction: "X",
+        }
+      ],
+    };
+    const result = [
+      { 
+        outputRoverX: 0, 
+        outoutRoverY: 0, 
+        outputRoverOrientation: "" ,
+        outputErrorMessage : "invalid rover instruction"
       }
     ];
     // Act
@@ -98,8 +128,6 @@ describe("Mars Rover - Move Around the Plateau test", () => {
 
 
 
-
-  // test invalid letters and coordinates
 
   // any input via a console application; supplying input via a file etc
 
