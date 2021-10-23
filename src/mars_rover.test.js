@@ -1,16 +1,5 @@
 // Mars Rover test
 
-// Lines of Input to the Program:
-// 5 5
-// 1 2 N
-// LMLMLMLMM
-// 3 3 E
-// MMRMMRMRRM
-
-// Expected Output:
-// 1 3 N
-// 5 1 E
-
 const mars_rover = require("../src/mars_rover");
 
 describe("Mars Rover - Move Around the Plateau test", () => {
@@ -109,6 +98,10 @@ describe("Mars Rover - Move Around the Plateau test", () => {
         {
           roverPosition: { roverX: 1, roverY: 4, roverOrientation: "N" },
           roverInstruction: "X",
+        },
+        {
+          roverPosition: { roverX: 1, roverY: 2, roverOrientation: "N" },
+          roverInstruction: "LMLMLMLMM",
         }
       ],
     };
@@ -118,6 +111,12 @@ describe("Mars Rover - Move Around the Plateau test", () => {
         outoutRoverY: 0, 
         outputRoverOrientation: "" ,
         outputErrorMessage : "invalid rover instruction"
+      },
+      { 
+        outputRoverX: 1, 
+        outoutRoverY: 3, 
+        outputRoverOrientation: "N"  ,
+        outputErrorMessage: ""
       }
     ];
     // Act
@@ -126,21 +125,20 @@ describe("Mars Rover - Move Around the Plateau test", () => {
     expect(roverFinalPosition).toStrictEqual(result);
   });
 
+  // refactoring instruction validation - add method include or other - only this letters('L','R','M')
 
-
-
-  // any input via a console application; supplying input via a file etc
+  // module.export
+  
+  // input via file
 
   // Code design and clean and well-tested.
 
-  // good unit test coverage and all unit tests passing
-
-  // descriptive README key features of your solution, assumptions, approaches and future.
-
   // Plateau is rectangular, be extended and other shaped
-    
+  
   // Plateau support other vehicles and not just Rovers
+  
+  // descriptive README key features solution, assumptions and future.
 
-  // Please attach a link to your GitHub repository containing your final Mars Rover Kata code solution.
+  // Please attach a link to your GitHub repository 
 
 });

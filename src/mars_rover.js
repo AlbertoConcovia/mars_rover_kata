@@ -15,12 +15,16 @@ const mars_rover = (setMarsRoverInstructions) => {
 
     // instruction validation
     let currentErrorMessage =  "" ;
-    if (e.roverInstruction === 'X') {
-      currentRoverPosition.roverX = 0,
-      currentRoverPosition.roverY = 0,
-      currentRoverOrientation = "",
-      currentErrorMessage = "invalid rover instruction";
-    } else {
+    [...e.roverInstruction].forEach((instruction) => {
+      if (instruction != 'L' && instruction != 'R' && instruction != 'M'){
+        currentErrorMessage = "invalid rover instruction";
+        currentRoverPosition.roverX = 0;
+        currentRoverPosition.roverY = 0;
+        currentRoverOrientation = "";
+      }
+    })
+      
+    if (currentErrorMessage === "") {
 
       // iterate each instruction
       [...e.roverInstruction].forEach((instruction) => {
