@@ -10,11 +10,19 @@ const mars_rover = (setMarsRoverInstructions) => {
   // Iterate for each Rover
   setMarsRoverInstructions.roverSetInstructions.forEach((e) => {
 
+    let currentErrorMessage =  "" ;
     let currentRoverOrientation = e.roverPosition.roverOrientation;
     let currentRoverPosition = e.roverPosition;
 
+    // Coordinates validation 
+    if (setMarsRoverInstructions.plateauMaxCoordinates.plateauX < 0 || 
+        setMarsRoverInstructions.plateauMaxCoordinates.plateauY < 0  ){
+      currentErrorMessage = "invalid plateau coordinate";
+      currentRoverPosition.roverX = 0;
+      currentRoverPosition.roverY = 0;
+      currentRoverOrientation = "";
+    }
     // instruction validation
-    let currentErrorMessage =  "" ;
     [...e.roverInstruction].forEach((instruction) => {
       if (instruction != 'L' && instruction != 'R' && instruction != 'M'){
         currentErrorMessage = "invalid rover instruction";
@@ -25,7 +33,7 @@ const mars_rover = (setMarsRoverInstructions) => {
     })
       
     if (currentErrorMessage === "") {
-
+  
       // iterate each instruction
       [...e.roverInstruction].forEach((instruction) => {
 

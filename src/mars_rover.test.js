@@ -3,6 +3,7 @@
 const mars_rover = require("../src/mars_rover");
 
 describe("Mars Rover - Move Around the Plateau test", () => {
+
   test("Test 1 - Given instructions to move - then return output successful ", () => {
     // Arrange
     const setMarsRoverInstructions = {
@@ -125,20 +126,31 @@ describe("Mars Rover - Move Around the Plateau test", () => {
     expect(roverFinalPosition).toStrictEqual(result);
   });
 
-  // refactoring instruction validation - add method include or other - only this letters('L','R','M')
-
-  // module.export
   
-  // input via file
-
-  // Code design and clean and well-tested.
-
-  // Plateau is rectangular, be extended and other shaped
-  
-  // Plateau support other vehicles and not just Rovers
-  
-  // descriptive README key features solution, assumptions and future.
-
-  // Please attach a link to your GitHub repository 
+  // test invalid letters into instructions
+  test("Test 5 - Given invalid coordinate then return error message", () => {
+    // Arrange
+    const setMarsRoverInstructions = {
+      plateauMaxCoordinates: { plateauX: -1, plateauY: 5 },
+      roverSetInstructions: [
+        {
+          roverPosition: { roverX: 1, roverY: 4, roverOrientation: "N" },
+          roverInstruction: "LMLM",
+        }
+      ],
+    };
+    const result = [
+      { 
+        outputRoverX: 0, 
+        outoutRoverY: 0, 
+        outputRoverOrientation: "" ,
+        outputErrorMessage : "invalid plateau coordinate"
+      }
+    ];
+    // Act
+    const roverFinalPosition = mars_rover(setMarsRoverInstructions);
+    // Assert
+    expect(roverFinalPosition).toStrictEqual(result);
+  });
 
 });
