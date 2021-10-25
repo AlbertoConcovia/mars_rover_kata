@@ -64,7 +64,7 @@ describe("Mars Rover - Move Around the Plateau test", () => {
     expect(roverFinalPosition).toStrictEqual(result);
   });
 
-  // test Plateau edge limit 5 5 
+  // Validation test - Plateau edge limit 5 5 
   test("Test 3 - Given coordinates that exceed the Plateau edge, then does not allow to exceed the edge", () => {
     // Arrange
     const setMarsRoverInstructions = {
