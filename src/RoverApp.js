@@ -1,25 +1,23 @@
+// Mars Rover
+
 const rover = require("./rover");
 const validation = require("./validation");
 const setPlateauMaxCoordinates = require("./plateau");
-
-const roversApp = (setMarsRoverInstructions) => {
+  
+const roversApp = ({plateauMaxCoordinates, roverSetInstructions}) => {
   const outputRoversPosition = [];
 
   // setting Plateau Limits
-  const plateau = setPlateauMaxCoordinates(setMarsRoverInstructions.plateauMaxCoordinates);
+  const plateau = setPlateauMaxCoordinates(plateauMaxCoordinates);
   
   // Iterate each roverSetInstructions
-  setMarsRoverInstructions.roverSetInstructions.forEach((e) => {
+  roverSetInstructions.forEach((e) => {
 
-    let currentErrorMessage = validation(
-      setMarsRoverInstructions.plateauMaxCoordinates,
-      e.roverInstruction
-    );
-    
-    // if not error then call rover
-    if (currentErrorMessage === "") {
-      rover(e.roverInstruction, plateau, e.roverPosition);
-    };
+    // input validation
+    let currentErrorMessage = validation(plateauMaxCoordinates, e.roverInstruction);
+   
+    // Call rover
+    if (currentErrorMessage === "") rover(e.roverInstruction, plateau, e.roverPosition);
 
     // output format
     const objFinalRoverPosition = {
