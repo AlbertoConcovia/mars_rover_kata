@@ -1,6 +1,6 @@
 // Mars Rover test
 
-const RoversApp = require("./RoverApp");
+const RoversApp = require("../src/RoverApp");
 
 describe("Mars Rover - Move Around the Plateau test", () => {
 

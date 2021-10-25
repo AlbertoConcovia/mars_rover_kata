@@ -1,4 +1,4 @@
-const getNewRoverOrientation = require("./Orientation");
+const getNewRoverOrientation = require("./orientation");
 let plateauUpperEdgeX = 0;
 let plateauUpperEdgeY = 0;
 const plateauLowerEdgeX = 0;

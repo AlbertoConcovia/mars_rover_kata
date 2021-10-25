@@ -1,8 +1,7 @@
 const Rover = require("./Rover");
 const validation = require("./validation");
-const getNewRoverPosition = require("./Position");
 const setRoverPosition = require("./Position");
-const setPlateauMaxCoordinates = require("./Plateau");
+const setPlateauMaxCoordinates = require("./plateau");
 
 const RoversApp = (setMarsRoverInstructions) => {
   const outputRoversPosition = [];
