@@ -1,9 +1,9 @@
-const Rover = require("./Rover");
+const rover = require("./rover");
 const validation = require("./validation");
-const setRoverPosition = require("./Position");
+const setRoverPosition = require("./position");
 const setPlateauMaxCoordinates = require("./plateau");
 
-const RoversApp = (setMarsRoverInstructions) => {
+const roversApp = (setMarsRoverInstructions) => {
   const outputRoversPosition = [];
 
   // setting Plateau Limits
@@ -17,10 +17,12 @@ const RoversApp = (setMarsRoverInstructions) => {
       e.roverInstruction
     );
     
+    // if not error then call rover
     if (currentErrorMessage === "") {
-      Rover(e.roverInstruction, plateau, e.roverPosition);
+      rover(e.roverInstruction, plateau, e.roverPosition);
     };
 
+    // output format
     const objFinalRoverPosition = {
       outputRoverX: e.roverPosition.roverX,
       outoutRoverY: e.roverPosition.roverY,
@@ -32,4 +34,4 @@ const RoversApp = (setMarsRoverInstructions) => {
   return outputRoversPosition;
 };
 
-module.exports = RoversApp;
+module.exports = roversApp;

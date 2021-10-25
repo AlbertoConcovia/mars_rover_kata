@@ -1,3 +1,5 @@
+// return new rover orientation
+
 const getNewRoverOrientation = (instruction, currentRoverOrientation) => {
   // If instruction is L or R - return the new Orientation.
   let newRoverOrientation = "";
