@@ -1,6 +1,6 @@
 # JavaScript Practice - Mars Rover 
 
-to Install:
+### to Install:
 
     Clone the repo locally 
 
@@ -8,11 +8,37 @@ to Install:
         npm install
 
 
-### Test
+### Process : 
+    roverApp.js  
+        --> set Plateau
+        --> validate input
+        --> call rover
+            --> get position
+            --> get orientation
 
-First Change "test": "jest" in the package.json.
-Second To run **ONE** test file at a time you can enter into the terminal npm test followed by the file extension:
-    npm test
+### Files : src/
+    roverApp.js 
+        --> plateau.js
+        --> validation.js
+        --> rover.js   
+            --> position.js 
+            --> orientation.js
 
-### Edge cases
+
+### Test : test/
+
+    First Change "test": "jest" in the package.json.
+
+    Second To run **ONE** test file at a time you can enter into the terminal "npm test" followed by the file extension:
+
+    "npm test"
+
+### Testing files
+    roverApp.test.js
+    rover.test.js
+    plateau.test.js
+    orientation.test.js
+    position.test.js 
+    validation.test.js
+
 
