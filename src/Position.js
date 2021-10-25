@@ -1,11 +1,12 @@
 const getNewRoverOrientation = require("./Orientation");
+let plateauUpperEdgeX = 0;
+let plateauUpperEdgeY = 0;
+const plateauLowerEdgeX = 0;
+const plateauLowerEdgeY = 0;
 
-const getNewRoverPosition = ( instruction, plateauMaxCoordinates, roverPosition) => {
-  const plateauUpperEdgeX = plateauMaxCoordinates.plateauX;
-  const plateauUpperEdgeY = plateauMaxCoordinates.plateauY;
-  const plateauLowerEdgeX = 0;
-  const plateauLowerEdgeY = 0;
-
+const  getNewRoverPosition = ( instruction, plateau, roverPosition) => {
+  plateauUpperEdgeX = plateau.plateauUpperEdgeX;
+  plateauUpperEdgeY = plateau.plateauUpperEdgeY;
 // If instruction is L or R we update the Orientation
   if (instruction === "L" || instruction === "R") {
     roverPosition.roverOrientation = getNewRoverOrientation(
@@ -13,7 +14,6 @@ const getNewRoverPosition = ( instruction, plateauMaxCoordinates, roverPosition)
       roverPosition.roverOrientation
     );
   }
-
   // If M move foward - check edge and update the Position.
   if (instruction === "M") {
     if (roverPosition.roverOrientation === "N") {
@@ -29,8 +29,7 @@ const getNewRoverPosition = ( instruction, plateauMaxCoordinates, roverPosition)
       if (roverPosition.roverX > plateauLowerEdgeX) roverPosition.roverX -= 1;
     }
   }
-
   return roverPosition;
 };
 
-module.exports = getNewRoverPosition;
+module.exports = getNewRoverPosition ;

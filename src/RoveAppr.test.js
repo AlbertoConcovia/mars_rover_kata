@@ -1,6 +1,6 @@
 // Mars Rover test
 
-const mars_rover = require("../src/mars_rover");
+const RoversApp = require("./RoverApp");
 
 describe("Mars Rover - Move Around the Plateau test", () => {
 
@@ -24,9 +24,9 @@ describe("Mars Rover - Move Around the Plateau test", () => {
       }
     ];
     // Act
-    const roverFinalPosition = mars_rover(setMarsRoverInstructions);
+    const roverFinalPositions = RoversApp(setMarsRoverInstructions);
     // Assert
-    expect(roverFinalPosition).toStrictEqual(result);
+    expect(roverFinalPositions).toStrictEqual(result);
   });
 
   test("Test 2 - Given instructions to move 2 Rovers - then return output successful ", () => {
@@ -59,9 +59,9 @@ describe("Mars Rover - Move Around the Plateau test", () => {
       }
     ];
     // Act
-    const roverFinalPosition = mars_rover(setMarsRoverInstructions);
+    const roverFinalPositions = RoversApp(setMarsRoverInstructions);
     // Assert
-    expect(roverFinalPosition).toStrictEqual(result);
+    expect(roverFinalPositions).toStrictEqual(result);
   });
 
   // Validation test - Plateau edge limit 5 5 
@@ -85,9 +85,9 @@ describe("Mars Rover - Move Around the Plateau test", () => {
       }
     ];
     // Act
-    const roverFinalPosition = mars_rover(setMarsRoverInstructions);
+    const roverFinalPositions = RoversApp(setMarsRoverInstructions);
     // Assert
-    expect(roverFinalPosition).toStrictEqual(result);
+    expect(roverFinalPositions).toStrictEqual(result);
   });
 
   // test invalid letters into instructions
@@ -108,9 +108,9 @@ describe("Mars Rover - Move Around the Plateau test", () => {
     };
     const result = [
       { 
-        outputRoverX: 0, 
-        outoutRoverY: 0, 
-        outputRoverOrientation: "" ,
+        outputRoverX: 1, 
+        outoutRoverY: 4, 
+        outputRoverOrientation: "N" ,
         outputErrorMessage : "invalid rover instruction"
       },
       { 
@@ -121,9 +121,9 @@ describe("Mars Rover - Move Around the Plateau test", () => {
       }
     ];
     // Act
-    const roverFinalPosition = mars_rover(setMarsRoverInstructions);
+    const roverFinalPositions = RoversApp(setMarsRoverInstructions);
     // Assert
-    expect(roverFinalPosition).toStrictEqual(result);
+    expect(roverFinalPositions).toStrictEqual(result);
   });
 
   
@@ -141,16 +141,16 @@ describe("Mars Rover - Move Around the Plateau test", () => {
     };
     const result = [
       { 
-        outputRoverX: 0, 
-        outoutRoverY: 0, 
-        outputRoverOrientation: "" ,
+        outputRoverX: 1, 
+        outoutRoverY: 4, 
+        outputRoverOrientation: "N" ,
         outputErrorMessage : "invalid plateau coordinate"
       }
     ];
     // Act
-    const roverFinalPosition = mars_rover(setMarsRoverInstructions);
+    const roverFinalPositions = RoversApp(setMarsRoverInstructions);
     // Assert
-    expect(roverFinalPosition).toStrictEqual(result);
+    expect(roverFinalPositions).toStrictEqual(result);
   });
 
 });
