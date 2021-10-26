@@ -1,13 +1,30 @@
 // rover
 const getNewRoverPosition = require("./Position");
 
+const outputRover = {
+    newRoverPosition:{},
+    roverErrorMessage:""
+}
+
 const Rover = (roverInstruction, plateau, roverPosition) => {
-    let newRoverPosition = roverPosition;
-    // Iterare for each rover instruction - and return new rover position
+
+    outputRover.newRoverPosition = roverPosition;
+
+    // instruction validation
     [...roverInstruction].forEach((instruction) => {
-        newRoverPosition = getNewRoverPosition(instruction, plateau, roverPosition);
-    });
-    return newRoverPosition;
+        if (instruction != 'L' && instruction != 'R' && instruction != 'M'){
+            outputRover.roverErrorMessage = "invalid rover instruction";
+        }
+    })
+    
+    if (outputRover.roverErrorMessage === "") {
+        // Iterare for each rover instruction - and return new rover position
+        [...roverInstruction].forEach((instruction) => {
+            outputRover.newRoverPosition = getNewRoverPosition(instruction, plateau, roverPosition);
+        });
+    }
+    
+    return outputRover;
 }
 
 module.exports = Rover;

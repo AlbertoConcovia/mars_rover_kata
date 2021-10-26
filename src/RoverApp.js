@@ -1,33 +1,38 @@
 // Mars Rover
 
 const rover = require("./rover");
-const validation = require("./validation");
 const setPlateauMaxCoordinates = require("./plateau");
-  
-const roversApp = ({plateauMaxCoordinates, roverSetInstructions}) => {
+
+const roversApp = ({ plateauMaxCoordinates, roverSetInstructions }) => {
   const outputRoversPosition = [];
 
   // setting Plateau Limits and validate coordinates
   const plateau = setPlateauMaxCoordinates(plateauMaxCoordinates);
+  let errorMessage = plateau.plateauUpperErrorMessage;
   
-  // Iterate each roverSetInstructions
-  roverSetInstructions.forEach((e) => {
+  // if the plateau coordinates are valid
+  if (errorMessage === "") {
+  
+    // Iterate each roverSetInstructions
+    roverSetInstructions.forEach((e) => {
+      // instruction validation
+      // let ErrorMessage = validation(e.roverInstruction);
 
-    // input validation
-    let currentErrorMessage = validation( e.roverInstruction);
-   
-    // Call rover
-    if (currentErrorMessage === "") rover(e.roverInstruction, plateau, e.roverPosition);
+      // Call rover
+      // if (currentErrorMessage === "") 
+      const outputRover = rover(e.roverInstruction, plateau, e.roverPosition);
+      let errorMessage = outputRover.roverErrorMessage;
 
-    // output format
-    const objFinalRoverPosition = {
-      outputRoverX: e.roverPosition.roverX,
-      outoutRoverY: e.roverPosition.roverY,
-      outputRoverOrientation: e.roverPosition.roverOrientation,
-      outputErrorMessage: currentErrorMessage,
-    };
-    outputRoversPosition.push(objFinalRoverPosition);
-  });
+      // output format
+      const objFinalRoverPosition = {
+        outputRoverX: e.roverPosition.roverX,
+        outoutRoverY: e.roverPosition.roverY,
+        outputRoverOrientation: e.roverPosition.roverOrientation,
+        outputErrorMessage: errorMessage,
+      };
+      outputRoversPosition.push(objFinalRoverPosition);
+    });
+  }
   return outputRoversPosition;
 };
 

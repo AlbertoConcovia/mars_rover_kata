@@ -92,41 +92,5 @@ describe("Mars Rover - Move Around the Plateau test", () => {
     expect(roverFinalPositions).toStrictEqual(result);
   });
 
-  // test invalid letters into instructions
-  test("Test 4 - Given invalid instruccions then return error message", () => {
-    // Arrange
-    const setMarsRoverInstructions = {
-      plateauMaxCoordinates: plateauUpperRightCoordinates,
-      roverSetInstructions: [
-        {
-          roverPosition: { roverX: 1, roverY: 4, roverOrientation: "N" },
-          roverInstruction: "X",
-        },
-        {
-          roverPosition: { roverX: 1, roverY: 2, roverOrientation: "N" },
-          roverInstruction: "LMLMLMLMM",
-        }
-      ],
-    };
-    const result = [
-      { 
-        outputRoverX: 1, 
-        outoutRoverY: 4, 
-        outputRoverOrientation: "N" ,
-        outputErrorMessage : "invalid rover instruction"
-      },
-      { 
-        outputRoverX: 1, 
-        outoutRoverY: 3, 
-        outputRoverOrientation: "N"  ,
-        outputErrorMessage: ""
-      }
-    ];
-    // Act
-    const roverFinalPositions = RoversApp(setMarsRoverInstructions);
-    // Assert
-    expect(roverFinalPositions).toStrictEqual(result);
-  });
-
   
 });

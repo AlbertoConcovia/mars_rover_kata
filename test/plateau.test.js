@@ -22,7 +22,7 @@ describe("Mars Rover - plateau test", () => {
   });
 
     
-  // test invalid letters into instructions
+  // test invalid coordintes
   test("plateau -Test 2 - Given invalid negative coordinate then return error message", () => {
     // Arrange
     const plateauMaxCoordinates = {
