@@ -36,7 +36,7 @@ describe("Mars Rover - plateau test", () => {
       plateauUpperEdgeY:  3 ,
       plateauLowerEdgeX:  0 ,
       plateauLowerEdgeY:  0 ,
-      plateauUpperErrorMessage: "invalid plateau coordinate"
+      plateauUpperErrorMessage: "invalid plateau coordinates"
     };
     // Act
     const plateauSetMaxCoordinates = setPlateauMaxCoordinates(plateauMaxCoordinates);
