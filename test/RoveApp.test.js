@@ -4,10 +4,12 @@ const RoversApp = require("../src/RoverApp");
 
 describe("Mars Rover - Move Around the Plateau test", () => {
 
+  const  plateauUpperRightCoordinates = { plateauX: 5, plateauY: 5 };
+  
   test("Test 1 - Given instructions to move - then return output successful ", () => {
     // Arrange
     const setMarsRoverInstructions = {
-      plateauMaxCoordinates: { plateauX: 5, plateauY: 5 },
+      plateauMaxCoordinates: plateauUpperRightCoordinates,
       roverSetInstructions: [
         {
           roverPosition: { roverX: 1, roverY: 2, roverOrientation: "N" },
@@ -32,7 +34,7 @@ describe("Mars Rover - Move Around the Plateau test", () => {
   test("Test 2 - Given instructions to move 2 Rovers - then return output successful ", () => {
     // Arrange
     const setMarsRoverInstructions = {
-      plateauMaxCoordinates: { plateauX: 5, plateauY: 5 },
+      plateauMaxCoordinates: plateauUpperRightCoordinates,
       roverSetInstructions: [
         {
           roverPosition: { roverX: 1, roverY: 2, roverOrientation: "N" },
@@ -68,7 +70,7 @@ describe("Mars Rover - Move Around the Plateau test", () => {
   test("Test 3 - Given coordinates that exceed the Plateau edge, then does not allow to exceed the edge", () => {
     // Arrange
     const setMarsRoverInstructions = {
-      plateauMaxCoordinates: { plateauX: 5, plateauY: 5 },
+      plateauMaxCoordinates: plateauUpperRightCoordinates,
       roverSetInstructions: [
         {
           roverPosition: { roverX: 1, roverY: 4, roverOrientation: "N" },
@@ -94,7 +96,7 @@ describe("Mars Rover - Move Around the Plateau test", () => {
   test("Test 4 - Given invalid instruccions then return error message", () => {
     // Arrange
     const setMarsRoverInstructions = {
-      plateauMaxCoordinates: { plateauX: 5, plateauY: 5 },
+      plateauMaxCoordinates: plateauUpperRightCoordinates,
       roverSetInstructions: [
         {
           roverPosition: { roverX: 1, roverY: 4, roverOrientation: "N" },
