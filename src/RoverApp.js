@@ -7,7 +7,7 @@ const setPlateauMaxCoordinates = require("./plateau");
 const roversApp = ({plateauMaxCoordinates, roverSetInstructions}) => {
   const outputRoversPosition = [];
 
-  // setting Plateau Limits
+  // setting Plateau Limits and validate coordinates
   const plateau = setPlateauMaxCoordinates(plateauMaxCoordinates);
   
   // Iterate each roverSetInstructions

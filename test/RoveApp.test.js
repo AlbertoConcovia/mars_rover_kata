@@ -129,30 +129,4 @@ describe("Mars Rover - Move Around the Plateau test", () => {
   });
 
   
-  // test invalid letters into instructions
-  test("Test 5 - Given invalid coordinate then return error message", () => {
-    // Arrange
-    const setMarsRoverInstructions = {
-      plateauMaxCoordinates: { plateauX: -1, plateauY: 5 },
-      roverSetInstructions: [
-        {
-          roverPosition: { roverX: 1, roverY: 4, roverOrientation: "N" },
-          roverInstruction: "LMLM",
-        }
-      ],
-    };
-    const result = [
-      { 
-        outputRoverX: 1, 
-        outoutRoverY: 4, 
-        outputRoverOrientation: "N" ,
-        outputErrorMessage : "invalid plateau coordinate"
-      }
-    ];
-    // Act
-    const roverFinalPositions = RoversApp(setMarsRoverInstructions);
-    // Assert
-    expect(roverFinalPositions).toStrictEqual(result);
-  });
-
 });
