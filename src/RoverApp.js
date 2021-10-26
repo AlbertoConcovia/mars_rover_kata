@@ -14,7 +14,7 @@ const roversApp = ({plateauMaxCoordinates, roverSetInstructions}) => {
   roverSetInstructions.forEach((e) => {
 
     // input validation
-    let currentErrorMessage = validation(plateauMaxCoordinates, e.roverInstruction);
+    let currentErrorMessage = validation( e.roverInstruction);
    
     // Call rover
     if (currentErrorMessage === "") rover(e.roverInstruction, plateau, e.roverPosition);
