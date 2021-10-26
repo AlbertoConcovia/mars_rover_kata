@@ -1,18 +1,18 @@
 
-let plateauUpperEdgeX = 0;
-let plateauUpperEdgeY = 0;
 let ErrorMessage = "";
 
 const setPlateauMaxCoordinates =  ({plateauX, plateauY}) => {
-
+  
   // Coordinates validation 
   if (plateauX < 0 ||  plateauY < 0  ){
-      ErrorMessage = "invalid plateau coordinate";
+      ErrorMessage = "invalid plateau coordinates";
   }
 
   return {
     plateauUpperEdgeX: plateauX ,
     plateauUpperEdgeY: plateauY ,
+    plateauLowerEdgeX: 0,
+    plateauLowerEdgeY: 0,
     plateauUpperErrorMessage: ErrorMessage
   }
 
