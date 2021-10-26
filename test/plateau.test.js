@@ -13,6 +13,8 @@ describe("Mars Rover - plateau test", () => {
     const result = {
       plateauUpperEdgeX: 2 ,
       plateauUpperEdgeY: 3 ,
+      plateauLowerEdgeX: 0 ,
+      plateauLowerEdgeY: 0 ,
       plateauUpperErrorMessage: ""
     };
     // Act
@@ -31,7 +33,9 @@ describe("Mars Rover - plateau test", () => {
     }
     const result = {
       plateauUpperEdgeX: -2 ,
-      plateauUpperEdgeY: 3 ,
+      plateauUpperEdgeY:  3 ,
+      plateauLowerEdgeX:  0 ,
+      plateauLowerEdgeY:  0 ,
       plateauUpperErrorMessage: "invalid plateau coordinate"
     };
     // Act
